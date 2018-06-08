@@ -9,7 +9,7 @@ class HouseCard extends Component {
         this.props.history.push(`/house/${this.props.houseId}`);
     }
     render() {
-        const { title, housePrice, address, sellType, pic1, createTime, paidCount} = this.props;
+        const { title, nick, age, address, pic1, createTime, paidCount} = this.props;
         return (
             <Card
                 onClick={this.handleClick}
@@ -25,10 +25,10 @@ class HouseCard extends Component {
                         { title }
                     </Card.Header>
                     <Card.Description>
-                        { housePrice }
+                        { nick }
                     </Card.Description>
                     <Card.Description>
-                        { sellType }
+                        { age }
                     </Card.Description>
                     <Card.Description>
                         { address }
@@ -54,9 +54,9 @@ class HouseCard extends Component {
 
 HouseCard.defaultProps = {
     title: '',
-    housePrice: '',
+    nick: '',
+    age: '',
     address: '',
-    sellType: '',
     pic1: '',
     createTime: '',
     paidCount: 0,

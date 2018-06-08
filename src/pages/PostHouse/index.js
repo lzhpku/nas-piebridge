@@ -7,18 +7,18 @@ import House from '../../components/House';
 class PostHouse extends Component {
     state = {
         title: '',
+        nick: '',
+        sex: '',
+        age: '',
         tel: '',
-        email: '',
-        housePrice : '',
+        wechat: '',
         address: '',
-        area: '',
-        houseType: '',
-        sellType: '',
-        usage: '',
-        description: '',
+        profession: '',
+        hobit: '',
         pic1: '',
         pic2: '',
         pic3: '',
+        description: '',
         price: '',
         ifPriceDialogOpen: false,
         ifTransactionDelayNoteDialogOpen: false,
@@ -45,15 +45,37 @@ class PostHouse extends Component {
         })
     }
     handleSubmit = () => {
-        const { title, tel, email, housePrice, address, area, houseType, sellType, usage, description,
+        const {
+            title,
+            nick,
+            sex,
+            age,
+            tel,
+            wechat,
+            address,
+            profession,
+            hobit,
             pic1,
             pic2,
-            pic3, price } = this.state;
+            pic3,
+            description,
+            price } = this.state;
 
-        postHouse(title, tel, email, housePrice, address, area, houseType, sellType, usage, description,
+        postHouse(
+            title,
+            nick,
+            sex,
+            age,
+            tel,
+            wechat,
+            address,
+            profession,
+            hobit,
             pic1,
             pic2,
-            pic3, Number(price))
+            pic3,
+            description,
+            Number(price))
             .then((res) => {
                 this.setState({
                     ifPriceDialogOpen: false,
@@ -82,7 +104,7 @@ class PostHouse extends Component {
                         trigger={
                             <Button
                                 onClick={this.handleTriggerOpenPriceDialog}
-                                disabled={!this.state.title || !(this.state.tel || this.state.email)}
+                                disabled={!this.state.title || !(this.state.tel || this.state.wechat)}
                                 style={{
                                     width: '200px'
                                 }}

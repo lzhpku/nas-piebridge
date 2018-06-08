@@ -1,30 +1,58 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Input, Segment, Header, TextArea, Card, Image, Label } from 'semantic-ui-react';
+import { Input, Segment, Header, TextArea, Card, Image, Label, Form, Checkbox } from 'semantic-ui-react';
 import './style.css';
 
 class House extends Component {
-    handleChange = (type) => (e) => {
+    handleChange = (type, housePrice) => (e) => {
         const {
-            title, tel, email, housePrice, address, area, houseType, sellType, usage, description,
+            title,
+            nick,
+            sex,
+            age,
+            tel,
+            wechat,
+            address,
+            profession,
+            hobit,
             pic1,
             pic2,
             pic3,
+            description,
         } = this.props;
         this.props.onChange({
-            title, tel, email, housePrice, address, area, houseType, sellType, usage, description,
+            title,
+            nick,
+            sex,
+            age,
+            tel,
+            wechat,
+            address,
+            profession,
+            hobit,
             pic1,
             pic2,
             pic3,
+            description,
             [type]: e.target.value,
         });
     }
+
     render() {
         const {
-            title, tel, email, housePrice, address, area, houseType, sellType, usage, description,
+            title,
+            nick,
+            sex,
+            age,
+            tel,
+            wechat,
+            address,
+            profession,
+            hobit,
             pic1,
             pic2,
             pic3,
+            description,
         } = this.props;
         return (
             <div
@@ -50,7 +78,7 @@ class House extends Component {
                         }}
                     >
                         <Input
-                            placeholder="标题"
+                            placeholder="想个吸引眼球的标题吧"
                             transparent
                             size="large"
                             style={{
@@ -74,12 +102,106 @@ class House extends Component {
                             }}
                         >
                             <Input
-                                placeholder="电话"
+                                placeholder="梅长苏/霓凰"
                                 transparent
                                 size="large"
                                 style={{
                                     width: '100%',
-                                    marginTop: this.props.type == 'write' ? '16px' : '0px',
+                                }}
+                                value={nick}
+                                disabled={this.props.type === 'read'}
+                                actionPosition="left"
+                                onChange={this.handleChange('nick')}
+                                labelPosition='right'
+                            >
+                                <Label
+                                    basic
+                                    style={{
+                                        border: 'none',
+                                        backgroundColor: '#fffff0',
+                                        fontSize: '16px',
+                                        paddingLeft: 0,
+                                        paddingRight: 0,
+                                    }}
+                                >
+                                    昵称：
+                                </Label>
+                                <input style={{ textAlign: 'left', width: '100%' }} />
+                            </Input>
+
+                            <Form
+                                style={{
+                                    width: '100%',
+                                    marginTop: '10px',
+                                }}
+                            >
+                                <Form.Field
+                                    style={{
+                                        border: 'none',
+                                        backgroundColor: '#fffff0',
+                                        fontSize: '16px',
+                                        paddingLeft: 0,
+                                        paddingRight: 0,
+                                        paddingTop: 0,
+                                        fontWeight: 700
+                                    }}
+                                >
+                                    性别：
+                                    <Checkbox
+                                        radio
+                                        label='男'
+                                        name='sex'
+                                        value='male'
+                                        checked={sex === 'male'}
+                                        onChange={this.handleChange('sex')}
+                                    />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Checkbox
+                                        radio
+                                        label='女'
+                                        name='sex'
+                                        value='female'
+                                        checked={sex === 'female'}
+                                        onChange={this.handleChange('sex')}
+                                    />
+                                </Form.Field>
+                            </Form>
+
+                            <Input
+                                placeholder=""
+                                transparent
+                                size="large"
+                                style={{
+                                    width: '100%',
+                                    marginTop: '12px',
+                                }}
+                                value={age}
+                                disabled={this.props.type === 'read'}
+                                actionPosition="left"
+                                onChange={this.handleChange('age')}
+                                labelPosition='right'
+                            >
+                                <Label
+                                    basic
+                                    style={{
+                                        border: 'none',
+                                        backgroundColor: '#fffff0',
+                                        fontSize: '16px',
+                                        paddingLeft: 0,
+                                        paddingRight: 0,
+                                    }}
+                                >
+                                    年龄：
+                                </Label>
+                                <input style={{ textAlign: 'left', width: '100%' }} />
+                            </Input>
+
+                            <Input
+                                placeholder="其他人只有支付了NAS才能看到"
+                                transparent
+                                size="large"
+                                style={{
+                                    width: '100%',
                                 }}
                                 value={tel}
                                 disabled={this.props.type === 'read'}
@@ -93,7 +215,6 @@ class House extends Component {
                                         border: 'none',
                                         backgroundColor: '#fffff0',
                                         fontSize: '16px',
-                                        display: this.props.type == 'write' ? 'none' : 'block',
                                         paddingLeft: 0,
                                         paddingRight: 0,
                                     }}
@@ -104,17 +225,16 @@ class House extends Component {
                             </Input>
 
                             <Input
-                                placeholder="邮箱"
+                                placeholder="其他人只有支付了NAS才能看到"
                                 transparent
                                 size="large"
                                 style={{
                                     width: '100%',
-                                    marginTop: this.props.type == 'write' ? '16px' : '0px',
                                 }}
-                                value={email}
+                                value={wechat}
                                 disabled={this.props.type === 'read'}
                                 actionPosition="left"
-                                onChange={this.handleChange('email')}
+                                onChange={this.handleChange('wechat')}
                                 labelPosition='right'
                             >
                                 <Label
@@ -123,12 +243,11 @@ class House extends Component {
                                         border: 'none',
                                         backgroundColor: '#fffff0',
                                         fontSize: '16px',
-                                        display: this.props.type == 'write' ? 'none' : 'block',
                                         paddingLeft: 0,
                                         paddingRight: 0,
                                     }}
                                 >
-                                    邮箱：
+                                    微信：
                                 </Label>
                                 <input style={{ textAlign: 'left', width: '100%' }} />
                             </Input>
@@ -148,42 +267,11 @@ class House extends Component {
                         </div>
 
                         <Input
-                            placeholder="价格"
+                            placeholder="北京市朝阳区"
                             transparent
                             size="large"
                             style={{
                                 width: '100%',
-                                marginTop: this.props.type == 'write' ? '16px' : '0px',
-                            }}
-                            value={housePrice}
-                            disabled={this.props.type === 'read'}
-                            actionPosition="left"
-                            onChange={this.handleChange('housePrice')}
-                            labelPosition='right'
-                        >
-                            <Label
-                                basic
-                                style={{
-                                    border: 'none',
-                                    backgroundColor: '#fffff0',
-                                    fontSize: '16px',
-                                    display: this.props.type == 'write' ? 'none' : 'block',
-                                    paddingLeft: 0,
-                                    paddingRight: 0,
-                                }}
-                            >
-                                价格：
-                            </Label>
-                            <input style={{ textAlign: 'left', width: '100%' }} />
-                        </Input>
-
-                        <Input
-                            placeholder="地址"
-                            transparent
-                            size="large"
-                            style={{
-                                width: '100%',
-                                marginTop: this.props.type == 'write' ? '16px' : '0px',
                             }}
                             value={address}
                             disabled={this.props.type === 'read'}
@@ -197,28 +285,26 @@ class House extends Component {
                                     border: 'none',
                                     backgroundColor: '#fffff0',
                                     fontSize: '16px',
-                                    display: this.props.type == 'write' ? 'none' : 'block',
                                     paddingLeft: 0,
                                     paddingRight: 0,
                                 }}
                             >
-                                地址：
+                                所在地区：
                             </Label>
                             <input style={{ textAlign: 'left', width: '100%' }} />
                         </Input>
 
                         <Input
-                            placeholder="户型：【例】3室1厅1厨1卫"
+                            placeholder="工程师/产品经理"
                             transparent
                             size="large"
                             style={{
                                 width: '100%',
-                                marginTop: this.props.type == 'write' ? '16px' : '0px',
                             }}
-                            value={houseType}
+                            value={profession}
                             disabled={this.props.type === 'read'}
                             actionPosition="left"
-                            onChange={this.handleChange('houseType')}
+                            onChange={this.handleChange('profession')}
                             labelPosition='right'
                         >
                             <Label
@@ -227,28 +313,26 @@ class House extends Component {
                                     border: 'none',
                                     backgroundColor: '#fffff0',
                                     fontSize: '16px',
-                                    display: this.props.type == 'write' ? 'none' : 'block',
                                     paddingLeft: 0,
                                     paddingRight: 0,
                                 }}
                             >
-                                户型：
+                                工作职业：
                             </Label>
                             <input style={{ textAlign: 'left', width: '100%' }} />
                         </Input>
 
                         <Input
-                            placeholder="面积：【例】105平米"
+                            placeholder="旅游/运动"
                             transparent
                             size="large"
                             style={{
                                 width: '100%',
-                                marginTop: this.props.type == 'write' ? '16px' : '0px',
                             }}
-                            value={area}
+                            value={hobit}
                             disabled={this.props.type === 'read'}
                             actionPosition="left"
-                            onChange={this.handleChange('area')}
+                            onChange={this.handleChange('hobit')}
                             labelPosition='right'
                         >
                             <Label
@@ -257,72 +341,11 @@ class House extends Component {
                                     border: 'none',
                                     backgroundColor: '#fffff0',
                                     fontSize: '16px',
-                                    display: this.props.type == 'write' ? 'none' : 'block',
                                     paddingLeft: 0,
                                     paddingRight: 0,
                                 }}
                             >
-                                面积：
-                            </Label>
-                            <input style={{ textAlign: 'left', width: '100%' }} />
-                        </Input>
-
-                        <Input
-                            placeholder="租售方式：出租/出售"
-                            transparent
-                            size="large"
-                            style={{
-                                width: '100%',
-                                marginTop: this.props.type == 'write' ? '16px' : '0px',
-                            }}
-                            value={sellType}
-                            disabled={this.props.type === 'read'}
-                            actionPosition="left"
-                            onChange={this.handleChange('sellType')}
-                            labelPosition='right'
-                        >
-                            <Label
-                                basic
-                                style={{
-                                    border: 'none',
-                                    backgroundColor: '#fffff0',
-                                    fontSize: '16px',
-                                    display: this.props.type == 'write' ? 'none' : 'block',
-                                    paddingLeft: 0,
-                                    paddingRight: 0,
-                                }}
-                            >
-                                租售方式：
-                            </Label>
-                            <input style={{ textAlign: 'left', width: '100%' }} />
-                        </Input>
-
-                        <Input
-                            placeholder="房屋用途：商业办公/普通住宅"
-                            transparent
-                            size="large"
-                            style={{
-                                width: '100%',
-                                marginTop: this.props.type == 'write' ? '16px' : '0px',
-                            }}
-                            value={usage}
-                            disabled={this.props.type === 'read'}
-                            actionPosition="left"
-                            onChange={this.handleChange('usage')}
-                            labelPosition='right'
-                        >
-                            <Label
-                                basic
-                                style={{
-                                    border: 'none',
-                                    backgroundColor: '#fffff0',
-                                    fontSize: '16px',
-                                    display: this.props.type == 'write' ? 'none' : 'block',
-                                    paddingLeft: 0,
-                                    paddingRight: 0,
-                                }}
-                            >
-                                房屋用途：
+                                兴趣爱好：
                             </Label>
                             <input style={{ textAlign: 'left', width: '100%' }} />
                         </Input>
@@ -349,9 +372,9 @@ class House extends Component {
                             style={{
                                 color: '#333'
                             }}
-                            as='h2' content={this.props.type == 'write' ? '上传图片' : '图片展示'} />
+                            as='h2' content={this.props.type == 'write' ? '添加照片' : '照片展示'} />
                         <Input
-                            placeholder="图片链接，请填写有效的图片地址（将作为首页图片展示）"
+                            placeholder="照片链接，请填写有效的照片地址（将作为首页照片展示）"
                             transparent
                             size="large"
                             style={{
@@ -369,7 +392,7 @@ class House extends Component {
                             onChange={this.handleChange('pic1')}
                         />
                         <Input
-                            placeholder="图片链接，请填写有效的图片地址"
+                            placeholder="照片链接，请填写有效的照片地址"
                             transparent
                             size="large"
                             style={{
@@ -387,7 +410,7 @@ class House extends Component {
                             onChange={this.handleChange('pic2')}
                         />
                         <Input
-                            placeholder="图片链接，请填写有效的图片地址"
+                            placeholder="照片链接，请填写有效的照片地址"
                             transparent
                             size="large"
                             style={{
@@ -456,12 +479,12 @@ class House extends Component {
                             style={{
                                 color: '#333'
                             }}
-                            as='h2' content="房屋描述" />
+                            as='h2' content="想说的话" />
                         <TextArea
                             autoHeight
                             value={description}
                             style={{ minHeight: 200, width: '100%', backgroundColor: '#fffff0', }}
-                            placeholder="【例】家具齐全，拎包入住，随时看房。"
+                            placeholder="可以是对自己的描述，也可以是对对方的期望等等。"
                             disabled={this.props.type === 'read'}
                             onChange={this.handleChange('description')}
                         />
@@ -478,18 +501,18 @@ House.propTypes = {};
 House.defaultProps = {
     type: 'write',
     title: '',
+    nick: '',
+    sex: '',
+    age: '',
     tel: '',
-    email: '',
-    housePrice : '',
+    wechat: '',
     address: '',
-    area: '',
-    houseType: '',
-    sellType: '',
-    usage: '',
-    description: '',
+    profession: '',
+    hobit: '',
     pic1: '',
     pic2: '',
     pic3: '',
+    description: '',
     ifPaid: true,
     onChange: () => {},
 };

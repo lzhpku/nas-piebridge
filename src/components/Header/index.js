@@ -25,8 +25,9 @@ class Header extends Component {
                         fontSize: '24px'
                     }}
                 >
-                    星云HOUSE
+                    PieBridge
                 </Menu.Item>
+
                 <Menu.Item
                     name='editorials'
                     active={this.props.location.pathname === '/'}
@@ -36,7 +37,19 @@ class Header extends Component {
                         fontSize: '16px'
                     }}
                 >
-                    最新房源
+                    倾国倾城
+                </Menu.Item>
+
+                <Menu.Item
+                    name='editorials'
+                    active={this.props.location.pathname === '/'}
+                    onClick={this.handleSwitchPage('/')}
+                    style={{
+                        color: '#c1eeff',
+                        fontSize: '16px'
+                    }}
+                >
+                    玉树临风
                 </Menu.Item>
 
                 <Menu.Item
@@ -48,7 +61,7 @@ class Header extends Component {
                         fontSize: '16px'
                     }}
                 >
-                    发布房源
+                    我要上桥
                 </Menu.Item>
 
                 <Menu.Item
