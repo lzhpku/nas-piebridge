@@ -6,13 +6,13 @@ import { Menu, Segment, Header, TextArea,
     Grid, Card, Responsive,
 } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
-import HouseCard from '../../components/HouseCard';
+import FriendCard from '../../components/FriendCard';
 import PageHeader from '../../components/Header';
 import { detectScreenType } from '../../utils';
 
-import { getHouseList } from '../../dataAdapter';
+import { getFriendList } from '../../dataAdapter';
 
-class Homepage extends Component {
+class HomePage extends Component {
     perRowMap = {
         mobile: 1,
         pad: 2,
@@ -24,7 +24,7 @@ class Homepage extends Component {
         list: [],
     }
     componentDidMount() {
-        getHouseList(this.state.curPage)
+        getFriendList(this.state.curPage, "female")
             .then(res => {
                 this.setState({
                     list: res.list.reverse(),
@@ -53,8 +53,8 @@ class Homepage extends Component {
                 >
                     {
                         this.state.list.map(item => (
-                            <HouseCard
-                                key={item.houseId}
+                            <FriendCard
+                                key={item.friendId}
                                 {...item}
                             />
                         ))
@@ -65,7 +65,7 @@ class Homepage extends Component {
     }
 }
 
-Homepage.propTypes = {};
-Homepage.defaultProps = {};
+HomePage.propTypes = {};
+HomePage.defaultProps = {};
 
-export default withRouter(Homepage);
+export default withRouter(HomePage);

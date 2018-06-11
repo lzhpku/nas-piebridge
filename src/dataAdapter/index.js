@@ -10,7 +10,7 @@ neb.setRequest(new HttpRequest(config[env]['contact_host']))
 const cry = "n1zgzRFoweYNkvhmEY7vcWJuYDjVYXVcwro";
 const CryptoJS = require("crypto-js");
 
-const cvtHouse = (house) => {
+const cvtFriend = (friend) => {
     const {
         title,
         nick,
@@ -20,7 +20,7 @@ const cvtHouse = (house) => {
         wechat,
         address,
         profession,
-        hobit,
+        hobby,
         pic1,
         pic2,
         pic3,
@@ -28,9 +28,10 @@ const cvtHouse = (house) => {
         price,
         createTime,
         paidCount,
+        fondCount,
         status,
-        houseId,
-    } = house;
+        friendId,
+    } = friend;
     return {
         title,
         nick,
@@ -40,7 +41,7 @@ const cvtHouse = (house) => {
         wechat: CryptoJS.AES.decrypt(wechat, cry).toString(CryptoJS.enc.Utf8),
         address,
         profession,
-        hobit,
+        hobby,
         pic1,
         pic2,
         pic3,
@@ -48,13 +49,14 @@ const cvtHouse = (house) => {
         price,
         createTime,
         paidCount,
-        houseId,
+        fondCount,
+        friendId,
         ifPaid: status === 0 || status === 1,
     };
 }
 
 
-export const postHouse = (title,
+export const postFriend = (title,
                           nick,
                           sex,
                           age,
@@ -62,14 +64,14 @@ export const postHouse = (title,
                           wechat,
                           address,
                           profession,
-                          hobit,
+                          hobby,
                           pic1,
                           pic2,
                           pic3,
                           description,
                           price) => {
     return new Promise((resolve) => {
-        nebPay.call(config[env]['contract_address'], 0, 'saveHouse',
+        nebPay.call(config[env]['contract_address'], 0, 'saveFriend',
             JSON.stringify([
                 title,
                 nick,
@@ -79,7 +81,7 @@ export const postHouse = (title,
                 CryptoJS.AES.encrypt(wechat, cry).toString(),
                 address,
                 profession,
-                hobit,
+                hobby,
                 pic1,
                 pic2,
                 pic3,
@@ -98,10 +100,10 @@ export const postHouse = (title,
     });
 }
 
-export const checkHouse = (houseId, price) => {
+export const checkFriend = (friendId, price) => {
     return new Promise((resolve) => {
-        nebPay.call(config[env]['contract_address'], price, 'checkHouse',
-            JSON.stringify([houseId]), {
+        nebPay.call(config[env]['contract_address'], price, 'checkFriend',
+            JSON.stringify([friendId]), {
                 qrcode: {
                     showQRCode: false
                 },
@@ -114,22 +116,22 @@ export const checkHouse = (houseId, price) => {
     });
 }
 
-export const getHouse = (houseId) => {
+export const getFriend = (friendId) => {
     return new Promise((resolve) => {
-        nebPay.simulateCall(config[env]['contract_address'], 0, 'getHouse', JSON.stringify([houseId]), {
+        nebPay.simulateCall(config[env]['contract_address'], 0, 'getFriend', JSON.stringify([friendId]), {
             qrcode: {
                 showQRCode: false
             },
             listener: (res) => {
                 resolve({
-                    house: cvtHouse(JSON.parse(res.result)),
+                    friend: cvtFriend(JSON.parse(res.result)),
                 });
             }
         });
     });
 }
 
-export const getHouseList = (curPage = 1) => {
+export const getFriendList = (curPage = 1, sex) => {
     const perPage = 20;
 
     return new Promise((resolve) => {
@@ -138,8 +140,8 @@ export const getHouseList = (curPage = 1) => {
             to: config[env]['contract_address'],
             value: 0,
             contract: {
-                function: 'getHouseList',
-                args: JSON.stringify([perPage, (curPage -1) * perPage]),
+                function: 'getFriendList',
+                args: JSON.stringify([perPage, (curPage -1) * perPage, sex]),
             },
             gasPrice: 1000000,
             gasLimit: 2000000,
@@ -147,7 +149,7 @@ export const getHouseList = (curPage = 1) => {
             .then(res => {
                 return resolve({
                     list: JSON.parse(res.result).map(item => (
-                        cvtHouse(item)
+                        cvtFriend(item)
                     )),
                 });
             })

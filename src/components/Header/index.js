@@ -29,7 +29,7 @@ class Header extends Component {
                 </Menu.Item>
 
                 <Menu.Item
-                    name='editorials'
+                    name='female'
                     active={this.props.location.pathname === '/'}
                     onClick={this.handleSwitchPage('/')}
                     style={{
@@ -41,9 +41,9 @@ class Header extends Component {
                 </Menu.Item>
 
                 <Menu.Item
-                    name='editorials'
-                    active={this.props.location.pathname === '/'}
-                    onClick={this.handleSwitchPage('/')}
+                    name='male'
+                    active={this.props.location.pathname === '/malefriend'}
+                    onClick={this.handleSwitchPage('/malefriend')}
                     style={{
                         color: '#c1eeff',
                         fontSize: '16px'
@@ -82,7 +82,7 @@ class Header extends Component {
                             color: '#c1eeff',
                             fontSize: '16px'
                         }}
-                        href="mailto:xingyunhouse@163.com"
+                        href="mailto:xingyunfriend@163.com"
                     >联系我们</a>
                 </Menu.Item>
             </Menu>
