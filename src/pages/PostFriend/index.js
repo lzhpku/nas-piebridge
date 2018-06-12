@@ -135,7 +135,7 @@ class PostFriend extends Component {
                                     textAlign: 'center',
                                     marginTop: '24px'
                                 }}
-                            >* 其他用户只有支付相应的金额才能查看您的联系方式</div>
+                            >* 其他用户只有支付相应的NAS才能查看您的联系方式</div>
                         </Modal.Content>
                         <Modal.Actions
                             style={{
@@ -177,7 +177,7 @@ class PostFriend extends Component {
                                 backgroundColor: '#fffff0'
                             }}
                         >
-                            简历内容写到链上需要15s左右的时间
+                            您的信息写入区块链大致需要15秒，请稍后查看。
                         </Modal.Content>
                         <Modal.Actions
                             style={{

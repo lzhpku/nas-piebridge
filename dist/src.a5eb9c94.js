@@ -113051,7 +113051,8 @@ var Friend = function (_Component) {
                     pic1 = _this$props.pic1,
                     pic2 = _this$props.pic2,
                     pic3 = _this$props.pic3,
-                    description = _this$props.description;
+                    description = _this$props.description,
+                    fondCount = _this$props.fondCount;
 
                 _this.props.onChange(_defineProperty({
                     title: title,
@@ -113066,7 +113067,8 @@ var Friend = function (_Component) {
                     pic1: pic1,
                     pic2: pic2,
                     pic3: pic3,
-                    description: description
+                    description: description,
+                    fondCount: fondCount
                 }, type, e.target.value || e2.value));
             };
         }, _temp), _possibleConstructorReturn(_this, _ret);
@@ -113088,7 +113090,8 @@ var Friend = function (_Component) {
                 pic1 = _props.pic1,
                 pic2 = _props.pic2,
                 pic3 = _props.pic3,
-                description = _props.description;
+                description = _props.description,
+                fondCount = _props.fondCount;
 
             return _react2.default.createElement(
                 'div',
@@ -113124,19 +113127,34 @@ var Friend = function (_Component) {
                             size: 'large',
                             style: {
                                 display: 'block',
-                                marginBottom: '40px'
+                                marginBottom: '20px'
                             },
                             value: title,
                             disabled: this.props.type === 'read',
                             input: _react2.default.createElement('input', {
                                 style: {
                                     textAlign: 'left', fontSize: '28px',
-                                    color: '#333', width: '100%'
+                                    color: '#333', width: '70%'
                                 }
                             }),
                             actionPosition: 'left',
                             onChange: this.handleChange('title')
                         }),
+                        _react2.default.createElement(
+                            _semanticUiReact.Button,
+                            { as: 'div', labelPosition: 'right' },
+                            _react2.default.createElement(
+                                _semanticUiReact.Button,
+                                { color: 'red' },
+                                _react2.default.createElement(_semanticUiReact.Icon, { name: 'heart' }),
+                                'Like'
+                            ),
+                            _react2.default.createElement(
+                                _semanticUiReact.Label,
+                                { as: 'a', basic: true, color: 'red', pointing: 'left' },
+                                fondCount
+                            )
+                        ),
                         _react2.default.createElement(
                             'div',
                             {
@@ -113591,6 +113609,7 @@ Friend.defaultProps = {
     pic2: '',
     pic3: '',
     description: '',
+    fondCount: 0,
     ifPaid: true,
     onChange: function onChange() {}
 };

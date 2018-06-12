@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Input, Segment, Header, TextArea, Card, Image, Label, Form, Checkbox } from 'semantic-ui-react';
+import { Input, Segment, Header, TextArea, Card, Image, Label, Form, Checkbox, Button, Icon } from 'semantic-ui-react';
 import './style.css';
 
 class Friend extends Component {
@@ -19,6 +19,7 @@ class Friend extends Component {
             pic2,
             pic3,
             description,
+            fondCount,
         } = this.props;
         this.props.onChange({
             title,
@@ -34,6 +35,7 @@ class Friend extends Component {
             pic2,
             pic3,
             description,
+            fondCount,
             [type]: e.target.value || e2.value,
         });
     }
@@ -53,6 +55,7 @@ class Friend extends Component {
             pic2,
             pic3,
             description,
+            fondCount,
         } = this.props;
         return (
             <div
@@ -83,19 +86,30 @@ class Friend extends Component {
                             size="large"
                             style={{
                                 display: 'block',
-                                marginBottom: '40px'
+                                marginBottom: '20px'
                             }}
                             value={title}
                             disabled={this.props.type === 'read'}
                             input={<input
                                 style={{
                                     textAlign: 'left', fontSize: '28px',
-                                    color: '#333', width: '100%'
+                                    color: '#333', width: '70%'
                                 }}
                             />}
                             actionPosition="left"
                             onChange={this.handleChange('title')}
                         />
+
+                        <Button as='div' labelPosition='right'>
+                            <Button color='red'>
+                                <Icon name='heart' />
+                                Like
+                            </Button>
+                            <Label as='a' basic color='red' pointing='left'>
+                                {fondCount}
+                            </Label>
+                        </Button>
+
                         <div
                             style={{
                                 position: 'relative',
@@ -513,6 +527,7 @@ Friend.defaultProps = {
     pic2: '',
     pic3: '',
     description: '',
+    fondCount: 0,
     ifPaid: true,
     onChange: () => {},
 };

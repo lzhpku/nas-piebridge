@@ -75,7 +75,7 @@ class PersonFriend extends Component {
                             backgroundColor: '#fffff0'
                         }}
                     >
-                        交易需要15s左右的时间才能达成，请过一会刷新查看
+                        交易需要15s左右的时间写入区块链，您可以浏览其他内容，请稍后查看。
                     </Modal.Content>
                     <Modal.Actions
                         style={{
