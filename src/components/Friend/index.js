@@ -4,7 +4,8 @@ import { Input, Segment, Header, TextArea, Card, Image, Label, Form, Checkbox, B
 import './style.css';
 
 class Friend extends Component {
-    handleChange = (type, friendPrice) => (e, e2) => {
+
+    handleChange = (type) => (e1, e2) => {
         const {
             title,
             nick,
@@ -36,7 +37,7 @@ class Friend extends Component {
             pic3,
             description,
             fondCount,
-            [type]: e.target.value || e2.value,
+            [type]: e1.target.value || e2.value,
         });
     }
 
@@ -100,9 +101,37 @@ class Friend extends Component {
                             onChange={this.handleChange('title')}
                         />
 
+                        <Input
+                            placeholder="梅长苏/霓凰"
+                            transparent
+                            size="large"
+                            style={{
+                                width: '100%',
+                            }}
+                            value={nick}
+                            disabled={this.props.type === 'read'}
+                            actionPosition="left"
+                            onChange={this.handleChange('nick')}
+                            labelPosition='right'
+                        >
+                            <Label
+                                basic
+                                style={{
+                                    border: 'none',
+                                    backgroundColor: '#fffff0',
+                                    fontSize: '16px',
+                                    paddingLeft: 0,
+                                    paddingRight: 0,
+                                }}
+                            >
+                                昵称：
+                            </Label>
+                            <input style={{textAlign: 'left', width: '100%'}}/>
+                        </Input>
+
                         <Button as='div' labelPosition='right'>
                             <Button color='red'>
-                                <Icon name='heart' />
+                                <Icon name='heart'/>
                                 Like
                             </Button>
                             <Label as='a' basic color='red' pointing='left'>
@@ -110,106 +139,78 @@ class Friend extends Component {
                             </Label>
                         </Button>
 
+                        <Form
+                            style={{
+                                width: '100%',
+                                marginTop: '10px',
+                            }}
+                        >
+                            <Form.Field
+                                style={{
+                                    border: 'none',
+                                    backgroundColor: '#fffff0',
+                                    fontSize: '16px',
+                                    paddingLeft: 0,
+                                    paddingRight: 0,
+                                    paddingTop: 0,
+                                    fontWeight: 700
+                                }}
+                            >
+                                性别：
+                                <Checkbox
+                                    radio
+                                    label='男'
+                                    name='checkbox'
+                                    value='male'
+                                    checked={sex === 'male'}
+                                    onChange={this.handleChange('sex')}
+                                />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <Checkbox
+                                    radio
+                                    label='女'
+                                    name='checkbox'
+                                    value='female'
+                                    checked={sex === 'female'}
+                                    onChange={this.handleChange('sex')}
+                                />
+                            </Form.Field>
+                        </Form>
+
+                        <Input
+                            placeholder="25岁"
+                            transparent
+                            size="large"
+                            style={{
+                                width: '100%',
+                                marginTop: '12px',
+                            }}
+                            value={age}
+                            disabled={this.props.type === 'read'}
+                            actionPosition="left"
+                            onChange={this.handleChange('age')}
+                            labelPosition='right'
+                        >
+                            <Label
+                                basic
+                                style={{
+                                    border: 'none',
+                                    backgroundColor: '#fffff0',
+                                    fontSize: '16px',
+                                    paddingLeft: 0,
+                                    paddingRight: 0,
+                                }}
+                            >
+                                年龄：
+                            </Label>
+                            <input style={{textAlign: 'left', width: '100%'}}/>
+                        </Input>
+
                         <div
                             style={{
                                 position: 'relative',
                             }}
                         >
-                            <Input
-                                placeholder="梅长苏/霓凰"
-                                transparent
-                                size="large"
-                                style={{
-                                    width: '100%',
-                                }}
-                                value={nick}
-                                disabled={this.props.type === 'read'}
-                                actionPosition="left"
-                                onChange={this.handleChange('nick')}
-                                labelPosition='right'
-                            >
-                                <Label
-                                    basic
-                                    style={{
-                                        border: 'none',
-                                        backgroundColor: '#fffff0',
-                                        fontSize: '16px',
-                                        paddingLeft: 0,
-                                        paddingRight: 0,
-                                    }}
-                                >
-                                    昵称：
-                                </Label>
-                                <input style={{ textAlign: 'left', width: '100%' }} />
-                            </Input>
-
-                            <Form
-                                style={{
-                                    width: '100%',
-                                    marginTop: '10px',
-                                }}
-                            >
-                                <Form.Field
-                                    style={{
-                                        border: 'none',
-                                        backgroundColor: '#fffff0',
-                                        fontSize: '16px',
-                                        paddingLeft: 0,
-                                        paddingRight: 0,
-                                        paddingTop: 0,
-                                        fontWeight: 700
-                                    }}
-                                >
-                                    性别：
-                                    <Checkbox
-                                        radio
-                                        label='男'
-                                        name='checkbox'
-                                        value='male'
-                                        checked={sex === 'male'}
-                                        onChange={this.handleChange('sex')}
-                                    />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <Checkbox
-                                        radio
-                                        label='女'
-                                        name='checkbox'
-                                        value='female'
-                                        checked={sex === 'female'}
-                                        onChange={this.handleChange('sex')}
-                                    />
-                                </Form.Field>
-                            </Form>
-
-                            <Input
-                                placeholder="25岁"
-                                transparent
-                                size="large"
-                                style={{
-                                    width: '100%',
-                                    marginTop: '12px',
-                                }}
-                                value={age}
-                                disabled={this.props.type === 'read'}
-                                actionPosition="left"
-                                onChange={this.handleChange('age')}
-                                labelPosition='right'
-                            >
-                                <Label
-                                    basic
-                                    style={{
-                                        border: 'none',
-                                        backgroundColor: '#fffff0',
-                                        fontSize: '16px',
-                                        paddingLeft: 0,
-                                        paddingRight: 0,
-                                    }}
-                                >
-                                    年龄：
-                                </Label>
-                                <input style={{ textAlign: 'left', width: '100%' }} />
-                            </Input>
-
                             <Input
                                 placeholder="其他人只有支付了NAS才能看到"
                                 transparent
@@ -504,7 +505,6 @@ class Friend extends Component {
                         />
                     </Segment>
                 </Segment>
-
 
             </div>
         );

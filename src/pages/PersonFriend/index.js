@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import Friend from '../../components/Friend';
 import { Button, Icon, Modal } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
@@ -38,6 +37,7 @@ class PersonFriend extends Component {
         return (
             <div>
                 <PageHeader />
+
                 <Friend
                     type="read"
                     {...this.state}
@@ -55,6 +55,7 @@ class PersonFriend extends Component {
                         支付{this.state.price}NAS查看房主联系方式
                     </Button>
                 </Friend>
+
                 <Modal
                     open={this.state.ifWaitforWriteChainDialogOpen}
                     style={{
