@@ -1,11 +1,11 @@
-.c-House .ui.disabled.input,
-.c-House input[disabled] {
+.c-Friend .ui.disabled.input,
+.c-Friend input[disabled] {
     opacity: 1 !important;
     color: #333 !important;
 }
 
-.c-House .ui.disabled.textarea,
-.c-House textarea[disabled]  {
+.c-Friend .ui.disabled.textarea,
+.c-Friend textarea[disabled]  {
     opacity: 1 !important;
     color: #333 !important;
     border: none;

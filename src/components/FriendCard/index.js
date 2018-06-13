@@ -9,7 +9,7 @@ class FriendCard extends Component {
         this.props.history.push(`/friend/${this.props.friendId}`);
     }
     render() {
-        const { title, nick, age, address, pic1, createTime, paidCount} = this.props;
+        const { title, nick, age, address, pic1, createTime, paidCount, fondCount } = this.props;
         return (
             <Card
                 onClick={this.handleClick}
@@ -48,7 +48,7 @@ class FriendCard extends Component {
                     </div>
                     <div style={{float:"right", width:"50%"}} >
                         <Icon name='user' />
-                        { paidCount } 人喜欢TA
+                        { fondCount } 人喜欢TA
                     </div>
                 </Card.Content>
             </Card>
@@ -64,6 +64,7 @@ FriendCard.defaultProps = {
     pic1: '',
     createTime: '',
     paidCount: 0,
+    fondCount: 0,
     friendId: ''
 };
 

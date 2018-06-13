@@ -132,7 +132,7 @@ export const getFriend = (friendId) => {
 }
 
 export const getFriendList = (curPage = 1, sex) => {
-    const perPage = 20;
+    const perPage = 50;
 
     return new Promise((resolve) => {
         neb.api.call({
