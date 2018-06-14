@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Label, Image, Icon } from 'semantic-ui-react';
 
 import { withRouter } from 'react-router';
+import defaultAvatar from './images/1.jpeg';
 
 class FriendCard extends Component {
 
@@ -15,7 +16,7 @@ class FriendCard extends Component {
                 onClick={this.handleClick}
             >
                 <Image
-                    src={pic1} />
+                    src={pic1 == "" ? defaultAvatar : pic1} />
                 <Card.Content
                     style={{
                         backgroundColor: '#fffff0',

@@ -45,7 +45,7 @@ class HomePage extends Component {
         return (
             <div
                 style={{
-                    backgroundImage: './images/1.png'
+                    backgroundImage: '../../images/1.png'
                 }}
             >
                 <PageHeader />

@@ -120,7 +120,7 @@ class Friend extends Component {
                                 color='red'
                             >
                                 <Icon name='heart'/>
-                                Like
+                                喜欢
                             </Button>
                             <Label
                                 as='a'
@@ -136,7 +136,7 @@ class Friend extends Component {
                         <div
                             style={{
                                 width: '100%',
-                                display: this.props.type == 'read' ? 'block' : 'none',
+                                display: this.props.type == 'read' && !(this.props.pic1 == '' && this.props.pic2 == '' && this.props.pic3 == '') ? 'block' : 'none',
                             }}
                         >
                             <Card.Group
@@ -147,22 +147,25 @@ class Friend extends Component {
                             >
                                 <Card
                                     style={{
-                                        marginTop: '16px'
+                                        marginTop: '16px',
                                     }}
+                                    href={pic1}
                                 >
                                     <Image src={pic1}/>
                                 </Card>
                                 <Card
                                     style={{
-                                        marginTop: '16px'
+                                        marginTop: '16px',
                                     }}
+                                    href={pic2}
                                 >
                                     <Image src={pic2}/>
                                 </Card>
                                 <Card
                                     style={{
-                                        marginTop: '16px'
+                                        marginTop: '16px',
                                     }}
+                                    href={pic3}
                                 >
                                     <Image src={pic3}/>
                                 </Card>
