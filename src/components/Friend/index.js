@@ -68,6 +68,7 @@ class Friend extends Component {
                 }}
                 className="c-Friend"
             >
+
                 <Segment
                     clearing
                     style={{
@@ -89,21 +90,30 @@ class Friend extends Component {
                             size="large"
                             style={{
                                 display: 'block',
-                                marginBottom: '20px'
+                                marginBottom: '20px',
                             }}
                             value={title}
                             disabled={this.props.type === 'read'}
                             input={<input
                                 style={{
-                                    textAlign: 'left', fontSize: '28px',
-                                    color: '#333', width: '70%'
+                                    textAlign: 'left',
+                                    fontSize: '28px',
+                                    color: '#333',
                                 }}
                             />}
                             actionPosition="left"
                             onChange={this.handleChange('title')}
                         />
 
-                        <Button as='div' labelPosition='right'>
+                        <div
+                            style={{
+                                display: this.props.type == 'read' ? 'block' : 'none',
+                            }}
+                        >
+                        <Button
+                            as='div'
+                            labelPosition='right'
+                        >
                             <Button
                                 onClick={this.props.onLike}
                                 color='red'
@@ -111,10 +121,69 @@ class Friend extends Component {
                                 <Icon name='heart'/>
                                 Like
                             </Button>
-                            <Label as='a' basic color='red' pointing='left'>
+                            <Label
+                                as='a'
+                                basic
+                                color='red'
+                                pointing='left'
+                            >
                                 {fondCount}
                             </Label>
                         </Button>
+                        </div>
+
+                        <div
+                            style={{
+                                width: '100%',
+                                display: this.props.type == 'read' ? 'block' : 'none',
+                            }}
+                        >
+                            <Card.Group
+                                itemsPerRow={3}
+                                style={{
+                                    padding: '40px',
+                                }}
+                            >
+                                <Card
+                                    style={{
+                                        marginTop: '16px'
+                                    }}
+                                >
+                                    <Image src={pic1}/>
+                                </Card>
+                                <Card
+                                    style={{
+                                        marginTop: '16px'
+                                    }}
+                                >
+                                    <Image src={pic2}/>
+                                </Card>
+                                <Card
+                                    style={{
+                                        marginTop: '16px'
+                                    }}
+                                >
+                                    <Image src={pic3}/>
+                                </Card>
+                            </Card.Group>
+                        </div>
+
+                        <div
+                            style={{display: !this.props.ifPaid && this.props.type === 'read' ? 'block' : 'none',}}
+                        >
+                            <Button
+                                color='twitter'
+                                style={{
+                                    borderRadius: '0',
+                                    backgroundColor: '#39beff',
+                                    width: '100%',
+                                }}
+                                onClick={this.props.onPay}
+                            >
+                                <Icon name='expeditedssl'/>
+                                支付{this.props.price}NAS查看TA的联系方式
+                            </Button>
+                        </div>
 
                         <Input
                             placeholder="梅长苏/霓凰"
@@ -212,9 +281,7 @@ class Friend extends Component {
                         </Input>
 
                         <div
-                            style={{
-                                position: 'relative',
-                            }}
+                            style={{display: (!this.props.ifPaid && this.props.type === 'read') ? 'none' : 'block',}}
                         >
                             <Input
                                 placeholder="其他人只有支付了NAS才能看到"
@@ -241,7 +308,7 @@ class Friend extends Component {
                                 >
                                     电话：
                                 </Label>
-                                <input style={{ textAlign: 'left', width: '100%' }} />
+                                <input style={{textAlign: 'left', width: '100%'}}/>
                             </Input>
 
                             <Input
@@ -269,32 +336,8 @@ class Friend extends Component {
                                 >
                                     微信：
                                 </Label>
-                                <input style={{ textAlign: 'left', width: '100%' }} />
+                                <input style={{textAlign: 'left', width: '100%'}}/>
                             </Input>
-
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    ...(!this.props.ifPaid && this.props.type === 'read'
-                                        ? { height: '100%', width: '100%', top: '0', left: '0',
-                                                background: '#fffff0' }
-                                        : { display: 'none'}
-                                    ),
-                                }}
-                            >
-                                <Button
-                                    color='twitter'
-                                    style={{
-                                        borderRadius: '0',
-                                        backgroundColor: '#39beff',
-                                        width: '100%'
-                                    }}
-                                    onClick={this.props.onPay}
-                                >
-                                    <Icon name='expeditedssl'/>
-                                    支付{this.props.price}NAS查看房主联系方式
-                                </Button>
-                            </div>
                         </div>
 
                         <Input
@@ -388,6 +431,7 @@ class Friend extends Component {
                     clearing
                     style={{
                         backgroundColor: '#fffff0',
+                        display: this.props.type == 'write' ? 'block' : 'none',
                     }}
                 >
                     <Segment
@@ -403,7 +447,9 @@ class Friend extends Component {
                             style={{
                                 color: '#333'
                             }}
-                            as='h2' content={this.props.type == 'write' ? '添加照片' : '照片展示'} />
+                            as='h2' content='添加照片'
+                        />
+
                         <Input
                             placeholder="照片链接，请填写有效的照片地址（将作为首页照片展示）"
                             transparent
@@ -458,37 +504,6 @@ class Friend extends Component {
                             actionPosition="left"
                             onChange={this.handleChange('pic3')}
                         />
-                        <Card.Group
-                            itemsPerRow={3}
-                            style={{
-                                padding: '40px',
-                            }}
-                        >
-                            <Card
-                                style={{
-                                    display: this.props.type == 'read' ? 'block' : 'none',
-                                    marginTop: '16px'
-                                }}
-                            >
-                                <Image src={pic1} />
-                            </Card>
-                            <Card
-                                style={{
-                                    display: this.props.type == 'read' ? 'block' : 'none',
-                                    marginTop: '16px'
-                                }}
-                            >
-                                <Image src={pic2} />
-                            </Card>
-                            <Card
-                                style={{
-                                    display: this.props.type == 'read' ? 'block' : 'none',
-                                    marginTop: '16px'
-                                }}
-                            >
-                                <Image src={pic3} />
-                            </Card>
-                        </Card.Group>
                     </Segment>
                 </Segment>
 

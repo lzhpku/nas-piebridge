@@ -116,23 +116,40 @@ export const checkFriend = (friendId, price) => {
     });
 }
 
+export const fondFriend = (friendId) => {
+    return new Promise((resolve) => {
+        nebPay.call(config[env]['contract_address'], 0, 'fondFriend',
+            JSON.stringify([friendId]), {
+                qrcode: {
+                    showQRCode: false
+                },
+                listener: (res) => {
+                    if (res.txhash) {
+                        resolve(res);
+                    }
+                }
+        });
+    });
+}
+
 export const getFriend = (friendId) => {
     return new Promise((resolve) => {
-        nebPay.simulateCall(config[env]['contract_address'], 0, 'getFriend', JSON.stringify([friendId]), {
-            qrcode: {
-                showQRCode: false
-            },
-            listener: (res) => {
-                resolve({
-                    friend: cvtFriend(JSON.parse(res.result)),
-                });
-            }
+        nebPay.simulateCall(config[env]['contract_address'], 0, 'getFriend',
+            JSON.stringify([friendId]), {
+                qrcode: {
+                    showQRCode: false
+                },
+                listener: (res) => {
+                    resolve({
+                        friend: cvtFriend(JSON.parse(res.result)),
+                    });
+                }
         });
     });
 }
 
 export const getFriendList = (curPage = 1, sex) => {
-    const perPage = 50;
+    const perPage = 100;
 
     return new Promise((resolve) => {
         neb.api.call({
@@ -141,7 +158,7 @@ export const getFriendList = (curPage = 1, sex) => {
             value: 0,
             contract: {
                 function: 'getFriendList',
-                args: JSON.stringify([perPage, (curPage -1) * perPage, sex]),
+                args: JSON.stringify([perPage, (curPage - 1) * perPage, sex]),
             },
             gasPrice: 1000000,
             gasLimit: 2000000,

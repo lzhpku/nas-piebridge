@@ -4,7 +4,7 @@ import { Button, Icon, Modal } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
 import PageHeader from '../../components/Header';
 
-import { getFriend, checkFriend } from '../../dataAdapter';
+import { getFriend, checkFriend, fondFriend } from '../../dataAdapter';
 
 class PersonFriend extends Component {
 
@@ -33,7 +33,7 @@ class PersonFriend extends Component {
         })
     }
     handleLike = () => {
-        checkFriend(this.props.match.params.friendId, this.state.price)
+        fondFriend(this.props.match.params.friendId)
             .then(res => {
                 this.setState({
                     ifWaitforWriteChainDialogOpen: true,
