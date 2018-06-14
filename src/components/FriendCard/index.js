@@ -16,10 +16,11 @@ class FriendCard extends Component {
                 onClick={this.handleClick}
             >
                 <Image
-                    src={pic1 == "" ? defaultAvatar : pic1} />
+                    src={pic1 == "" ? defaultAvatar : pic1}
+                />
                 <Card.Content
                     style={{
-                        backgroundColor: '#fffff0',
+                        backgroundColor: '#fff',
                     }}
                 >
                     <Card.Header>
@@ -40,7 +41,7 @@ class FriendCard extends Component {
                 </Card.Content>
                 <Card.Content extra
                               style={{
-                                  backgroundColor: '#fffff0',
+                                  backgroundColor: '#fff',
                               }}
                 >
                     <div style={{float:"left", width:"50%"}}>

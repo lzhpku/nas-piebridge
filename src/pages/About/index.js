@@ -10,7 +10,7 @@ class About extends Component {
                 <PageHeader />
                 <div style={{
                     padding: '0 40px',
-                    color: '#c1eeff',
+                    color: '#fff',
                     fontSize: '14px'
                 }}>
                     <div>
@@ -56,9 +56,9 @@ class About extends Component {
                                 3. PieBridge（鹊桥）基于星云链生态的开发，从您体验和账号安全的角度考虑，请您在使用前先安装
                                 <a href="https://github.com/ChengOrangeJu/WebExtensionWallet"
                                    style={{
-                                       color: '#39beff',
+                                       color: '#f798b4',
                                    }}
-                                >NAS钱包插件</a>。
+                                >NAS钱包插件</a>，解压后添加到chrome浏览器的扩展程序即可。
                             </List.Item>
                             <List.Item>
                                 4. 请勿发布低俗内容，共同维护健康积极社区秩序。

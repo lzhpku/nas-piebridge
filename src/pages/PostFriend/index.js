@@ -114,20 +114,20 @@ class PostFriend extends Component {
                             style={{
                                 textAlign: 'center',
                                 width: '100%',
-                                backgroundColor: '#fffff0'
+                                backgroundColor: '#fff'
                             }}
                         >设置付费金额</Modal.Header>
                         <Modal.Content
                             style={{
                                 textAlign: 'center',
-                                backgroundColor: '#fffff0'
+                                backgroundColor: '#fff'
                             }}
                         >
                             <Input
                                 value={this.state.price}
                                 onChange={this.handleChangePrice}
                                 style={{
-                                    backgroundColor: '#fffff0'
+                                    backgroundColor: '#fff'
                                 }}
                             /> NAS
                             <div
@@ -140,7 +140,7 @@ class PostFriend extends Component {
                         <Modal.Actions
                             style={{
                                 textAlign: 'center',
-                                backgroundColor: '#fffff0'
+                                backgroundColor: '#fff'
                             }}
                         >
                             <Button
@@ -159,14 +159,14 @@ class PostFriend extends Component {
                     </Modal>
                     <Modal
                         style={{
-                            backgroundColor: '#fffff0'
+                            backgroundColor: '#fff'
                         }}
                         open={this.state.ifTransactionDelayNoteDialogOpen}
                     >
                         <Modal.Header
                             style={{
                                 textAlign: 'center',
-                                backgroundColor: '#fffff0'
+                                backgroundColor: '#fff'
                             }}
                         >
                             注意
@@ -174,7 +174,7 @@ class PostFriend extends Component {
                         <Modal.Content
                             style={{
                                 textAlign: 'center',
-                                backgroundColor: '#fffff0'
+                                backgroundColor: '#fff'
                             }}
                         >
                             您的信息写入区块链大致需要15秒，请稍后查看。
@@ -182,7 +182,7 @@ class PostFriend extends Component {
                         <Modal.Actions
                             style={{
                                 textAlign: 'center',
-                                backgroundColor: '#fffff0'
+                                backgroundColor: '#fff'
                             }}
                         >
                             <Button

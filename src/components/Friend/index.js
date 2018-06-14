@@ -73,7 +73,7 @@ class Friend extends Component {
                 <Segment
                     clearing
                     style={{
-                        backgroundColor: '#fffff0',
+                        backgroundColor: '#fff',
                     }}
                 >
                     <Segment
@@ -82,56 +82,98 @@ class Friend extends Component {
                             boxShadow: 'none',
                             width: '100%',
                             overflow: 'hidden',
-                            backgroundColor: '#fffff0',
+                            backgroundColor: '#fff',
                         }}
                     >
-                        <Input
-                            placeholder="想个吸引眼球的标题吧"
-                            transparent
-                            size="large"
-                            style={{
-                                display: 'block',
-                                marginBottom: '20px',
-                            }}
-                            value={title}
-                            disabled={this.props.type === 'read'}
-                            input={<input
-                                style={{
-                                    textAlign: 'left',
-                                    fontSize: '28px',
-                                    color: '#333',
-                                }}
-                            />}
-                            actionPosition="left"
-                            onChange={this.handleChange('title')}
-                        />
-
                         <div
                             style={{
-                                display: this.props.type == 'read' ? 'block' : 'none',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                marginBottom: '20px',
                             }}
                         >
-                        <Button
-                            as='div'
-                            labelPosition='right'
-                        >
-                            <Button
-                                onClick={this.props.onLike}
-                                color='red'
+                            <Input
+                                placeholder="想个吸引眼球的标题吧"
+                                transparent
+                                size="large"
+                                style={{
+                                    width: '70%',
+                                }}
+                                value={title}
+                                disabled={this.props.type === 'read'}
+                                input={<input
+                                    style={{
+                                        textAlign: 'left',
+                                        fontSize: '28px',
+                                        color: '#333',
+                                        width: '100%',
+                                    }}
+                                />}
+                                actionPosition="left"
+                                onChange={this.handleChange('title')}
+                            />
+
+                            <div
+                                style={{
+                                    display: this.props.type == 'read' ? 'inline-flex' : 'none',
+                                }}
                             >
-                                <Icon name='heart'/>
-                                喜欢
-                            </Button>
-                            <Label
-                                as='a'
-                                basic
-                                color='red'
-                                pointing='left'
-                            >
-                                {fondCount}
-                            </Label>
-                        </Button>
+                                <div
+                                    className="ui right labeled button"
+                                    role="button"
+                                    tabIndex="0"
+                                    style={{
+                                        backgroundColor: '#f798b4',
+                                    }}
+                                >
+                                    <button
+                                        className="ui button"
+                                        role="button"
+                                        onClick={this.props.onLike}
+                                        style={{
+                                            color: '#f798b4',
+                                        }}
+                                    >
+                                        <i aria-hidden="true"
+                                           className="heart icon"
+                                        >
+                                        </i>
+                                        喜欢
+                                    </button>
+                                    <a
+                                        className="ui pink left pointing basic label"
+                                        style={{
+                                            color: '#f798b4',
+                                        }}
+                                    >
+                                        {fondCount}
+                                    </a>
+                                </div>
+
+                                <Button
+                                    as='div'
+                                    labelPosition='right'
+                                >
+                                    <Button
+                                        onClick={this.props.onLike}
+                                        color='pink'
+                                    >
+                                        <Icon name='heart'/>
+                                        喜欢
+                                    </Button>
+                                    <Label
+                                        as='a'
+                                        basic
+                                        color='pink'
+                                        pointing='left'
+                                    >
+                                        {fondCount}
+                                    </Label>
+                                </Button>
+                            </div>
                         </div>
+
 
                         <div
                             style={{
@@ -173,14 +215,17 @@ class Friend extends Component {
                         </div>
 
                         <div
-                            style={{display: !this.props.ifPaid && this.props.type === 'read' ? 'block' : 'none',}}
+                            style={{
+                                display: !this.props.ifPaid && this.props.type === 'read' ? 'block' : 'none',
+                                textAlign: 'center',
+                            }}
                         >
                             <Button
                                 color='twitter'
                                 style={{
                                     borderRadius: '0',
-                                    backgroundColor: '#39beff',
-                                    width: '100%',
+                                    backgroundColor: '#f798b4',
+                                    width: '50%',
                                 }}
                                 onClick={this.props.onPay}
                             >
@@ -206,7 +251,7 @@ class Friend extends Component {
                                 basic
                                 style={{
                                     border: 'none',
-                                    backgroundColor: '#fffff0',
+                                    backgroundColor: '#fff',
                                     fontSize: '16px',
                                     paddingLeft: 0,
                                     paddingRight: 0,
@@ -226,7 +271,7 @@ class Friend extends Component {
                             <Form.Field
                                 style={{
                                     border: 'none',
-                                    backgroundColor: '#fffff0',
+                                    backgroundColor: '#fff',
                                     fontSize: '16px',
                                     paddingLeft: 0,
                                     paddingRight: 0,
@@ -273,7 +318,7 @@ class Friend extends Component {
                                 basic
                                 style={{
                                     border: 'none',
-                                    backgroundColor: '#fffff0',
+                                    backgroundColor: '#fff',
                                     fontSize: '16px',
                                     paddingLeft: 0,
                                     paddingRight: 0,
@@ -304,7 +349,7 @@ class Friend extends Component {
                                     basic
                                     style={{
                                         border: 'none',
-                                        backgroundColor: '#fffff0',
+                                        backgroundColor: '#fff',
                                         fontSize: '16px',
                                         paddingLeft: 0,
                                         paddingRight: 0,
@@ -332,7 +377,7 @@ class Friend extends Component {
                                     basic
                                     style={{
                                         border: 'none',
-                                        backgroundColor: '#fffff0',
+                                        backgroundColor: '#fff',
                                         fontSize: '16px',
                                         paddingLeft: 0,
                                         paddingRight: 0,
@@ -361,7 +406,7 @@ class Friend extends Component {
                                 basic
                                 style={{
                                     border: 'none',
-                                    backgroundColor: '#fffff0',
+                                    backgroundColor: '#fff',
                                     fontSize: '16px',
                                     paddingLeft: 0,
                                     paddingRight: 0,
@@ -389,7 +434,7 @@ class Friend extends Component {
                                 basic
                                 style={{
                                     border: 'none',
-                                    backgroundColor: '#fffff0',
+                                    backgroundColor: '#fff',
                                     fontSize: '16px',
                                     paddingLeft: 0,
                                     paddingRight: 0,
@@ -417,7 +462,7 @@ class Friend extends Component {
                                 basic
                                 style={{
                                     border: 'none',
-                                    backgroundColor: '#fffff0',
+                                    backgroundColor: '#fff',
                                     fontSize: '16px',
                                     paddingLeft: 0,
                                     paddingRight: 0,
@@ -434,7 +479,7 @@ class Friend extends Component {
                 <Segment
                     clearing
                     style={{
-                        backgroundColor: '#fffff0',
+                        backgroundColor: '#fff',
                         display: this.props.type == 'write' ? 'block' : 'none',
                     }}
                 >
@@ -444,7 +489,7 @@ class Friend extends Component {
                             boxShadow: 'none',
                             width: '100%',
                             overflow: 'hidden',
-                            backgroundColor: '#fffff0',
+                            backgroundColor: '#fff',
                         }}
                     >
                         <Header
@@ -513,7 +558,7 @@ class Friend extends Component {
 
                 <Segment
                     style={{
-                        backgroundColor: '#fffff0',
+                        backgroundColor: '#fff',
                     }}
                 >
                     <Segment
@@ -522,7 +567,7 @@ class Friend extends Component {
                             boxShadow: 'none',
                             width: '100%',
                             overflow: 'hidden',
-                            backgroundColor: '#fffff0',
+                            backgroundColor: '#fff',
                         }}
                     >
                         <Header
@@ -533,7 +578,7 @@ class Friend extends Component {
                         <TextArea
                             autoHeight
                             value={description}
-                            style={{ minHeight: 200, width: '100%', backgroundColor: '#fffff0', }}
+                            style={{ minHeight: 200, width: '100%', backgroundColor: '#fff', }}
                             placeholder="可以是对自己的描述，也可以是对对方的期望等等。"
                             disabled={this.props.type === 'read'}
                             onChange={this.handleChange('description')}

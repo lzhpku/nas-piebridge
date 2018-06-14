@@ -56,13 +56,13 @@ class PersonFriend extends Component {
                 <Modal
                     open={this.state.ifWaitforWriteChainDialogOpen}
                     style={{
-                        backgroundColor: '#fffff0'
+                        backgroundColor: '#fff'
                     }}
                 >
                     <Modal.Header
                         style={{
                             textAlign: 'center',
-                            backgroundColor: '#fffff0'
+                            backgroundColor: '#fff'
                         }}
                     >
                         注意
@@ -70,7 +70,7 @@ class PersonFriend extends Component {
                     <Modal.Content
                         style={{
                             textAlign: 'center',
-                            backgroundColor: '#fffff0'
+                            backgroundColor: '#fff'
                         }}
                     >
                         交易需要15s左右的时间写入区块链，您可以浏览其他内容，请稍后查看。
@@ -78,7 +78,7 @@ class PersonFriend extends Component {
                     <Modal.Actions
                         style={{
                             textAlign: 'center',
-                            backgroundColor: '#fffff0'
+                            backgroundColor: '#fff'
                         }}
                     >
                         <Button

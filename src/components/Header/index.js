@@ -21,7 +21,7 @@ class Header extends Component {
             >
                 <Menu.Item
                     style={{
-                        color: '#39beff',
+                        color: '#f798b4',
                         fontSize: '24px'
                     }}
                 >
@@ -33,7 +33,7 @@ class Header extends Component {
                     active={this.props.location.pathname === '/'}
                     onClick={this.handleSwitchPage('/')}
                     style={{
-                        color: '#c1eeff',
+                        color: '#fff',
                         fontSize: '16px'
                     }}
                 >
@@ -45,7 +45,7 @@ class Header extends Component {
                     active={this.props.location.pathname === '/malefriend'}
                     onClick={this.handleSwitchPage('/malefriend')}
                     style={{
-                        color: '#c1eeff',
+                        color: '#fff',
                         fontSize: '16px'
                     }}
                 >
@@ -57,7 +57,7 @@ class Header extends Component {
                     active={this.props.location.pathname === '/post'}
                     onClick={this.handleSwitchPage('/post')}
                     style={{
-                        color: '#c1eeff',
+                        color: '#fff',
                         fontSize: '16px'
                     }}
                 >
@@ -69,7 +69,7 @@ class Header extends Component {
                     active={this.props.location.pathname === '/about'}
                     onClick={this.handleSwitchPage('/about')}
                     style={{
-                        color: '#c1eeff',
+                        color: '#fff',
                         fontSize: '16px'
                     }}
                 >
@@ -79,7 +79,7 @@ class Header extends Component {
                 <Menu.Item>
                     <a
                         style={{
-                            color: '#c1eeff',
+                            color: '#fff',
                             fontSize: '16px'
                         }}
                         href="mailto:xingyunfriend@163.com"
