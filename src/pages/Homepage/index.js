@@ -43,7 +43,11 @@ class HomePage extends Component {
     }
     render() {
         return (
-            <div>
+            <div
+                style={{
+                    backgroundImage: './images/1.png'
+                }}
+            >
                 <PageHeader />
                 <Card.Group
                     itemsPerRow={this.state.perRow}

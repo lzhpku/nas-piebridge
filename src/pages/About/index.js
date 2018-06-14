@@ -60,6 +60,9 @@ class About extends Component {
                                    }}
                                 >NAS钱包插件</a>。
                             </List.Item>
+                            <List.Item>
+                                4. 请勿发布低俗内容，共同维护健康积极社区秩序。
+                            </List.Item>
                         </List>
                     </div>
 
