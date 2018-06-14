@@ -14,7 +14,7 @@ class About extends Component {
                     fontSize: '14px'
                 }}>
                     <div>
-                        星云HOUSE是一个基于星云链的房屋信息发布、托管与共享平台，房主可以在平台上发布租房、售房信息，用户通过支付用户预先设定的NAS价格获取房主的联系方式。
+                        PieBridge（鹊桥）是一个基于星云链的交友平台，提供了用户之间发布征友信息、相互喜欢的玩法。
                     </div>
 
                     <div
@@ -22,16 +22,19 @@ class About extends Component {
                             paddingTop: '40px'
                         }}
                     >
-                        <h3>星云HOUSE的特点与优势：</h3>
+                        <h3>PieBridge（鹊桥）玩法：</h3>
                         <List>
                             <List.Item>
-                                1. 房屋数据写入区块链，可以保证数据的透明公开可查；
+                                1. 发布征友信息：用户可以点击"我要上桥"，填写征友信息和照片链接，设置联系方式需要支付的NAS后发起交易即可；
                             </List.Item>
                             <List.Item>
-                                2. 通过智能合约，用户的NAS直接转入房主账户，避免了各种房屋中介平台在沟通过程中乱收中介费的现象；
+                                2. 查看征友信息：应征的用户通过支付相应的NAS，可以获得"倾国倾城/玉树临风"中TA的联系方式；
                             </List.Item>
                             <List.Item>
-                                3. 通过支付NAS的方式，免除了房屋中介对用户的骚扰，提高了房主与用户的沟通效率；
+                                3. 隐藏玩法：发布过征友信息的用户，如果相互点赞，可以免费查看对方的联系方式哦~；
+                            </List.Item>
+                            <List.Item>
+                                4. 土豪玩法：点赞的时候发送的NAS将全部转入征友信息发布者的账户，土豪们尽情表达心意吧！；
                             </List.Item>
                         </List>
                     </div>
@@ -44,13 +47,13 @@ class About extends Component {
                         <h3>使用须知：</h3>
                         <List>
                             <List.Item>
-                                1. 星云HOUSE提供房源信息托管与溯源服务，主要解决现有平台在房主与用户沟通时，中介方由于信息优势乱收费的现象，但无法保证房源信息真实可靠。平台的信息来自房主本人，请用户务必认真核实，因信息不实造成的损失由用户自行承担。
+                                1. PieBridge（鹊桥）提供征友信息托管与溯源服务，并不保证信息内容真实可靠，请用户务必认真核实，因信息不实造成的损失由用户自行承担。
                             </List.Item>
                             <List.Item>
-                                2. 房源发布流程：点击"发布房源"，填写房源信息与图片链接，设置联系方式支付金额后发起交易即可。
+                                2. 用户支付的NAS将直接转入征友信息发布者的账户，平台不收取任何费用。
                             </List.Item>
                             <List.Item>
-                                3. 星云HOUSE基于星云链生态的开发，从您体验和账号安全的角度考虑，请您在使用前先安装
+                                3. PieBridge（鹊桥）基于星云链生态的开发，从您体验和账号安全的角度考虑，请您在使用前先安装
                                 <a href="https://github.com/ChengOrangeJu/WebExtensionWallet"
                                    style={{
                                        color: '#39beff',
@@ -65,7 +68,7 @@ class About extends Component {
                             paddingTop: '40px'
                         }}
                     >
-                        <h3>星云HOUSE，房主多赚NAS，用户少花NAS，打造区块链+住房第一品牌！</h3>
+                        <h3>PieBridge（鹊桥），喜欢TA就给TA NAS吧，打造区块链+交友第一品牌！</h3>
                     </div>
 
                 </div>
