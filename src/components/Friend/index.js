@@ -21,6 +21,7 @@ class Friend extends Component {
             pic3,
             description,
             fondCount,
+            price,
         } = this.props;
         this.props.onChange({
             title,
@@ -37,6 +38,7 @@ class Friend extends Component {
             pic3,
             description,
             fondCount,
+            price,
             [type]: e1.target.value || e2.value,
         });
     }
@@ -101,6 +103,19 @@ class Friend extends Component {
                             onChange={this.handleChange('title')}
                         />
 
+                        <Button as='div' labelPosition='right'>
+                            <Button
+                                onClick={this.props.onLike}
+                                color='red'
+                            >
+                                <Icon name='heart'/>
+                                Like
+                            </Button>
+                            <Label as='a' basic color='red' pointing='left'>
+                                {fondCount}
+                            </Label>
+                        </Button>
+
                         <Input
                             placeholder="梅长苏/霓凰"
                             transparent
@@ -128,16 +143,6 @@ class Friend extends Component {
                             </Label>
                             <input style={{textAlign: 'left', width: '100%'}}/>
                         </Input>
-
-                        <Button as='div' labelPosition='right'>
-                            <Button color='red'>
-                                <Icon name='heart'/>
-                                Like
-                            </Button>
-                            <Label as='a' basic color='red' pointing='left'>
-                                {fondCount}
-                            </Label>
-                        </Button>
 
                         <Form
                             style={{
@@ -277,7 +282,18 @@ class Friend extends Component {
                                     ),
                                 }}
                             >
-                                {this.props.children}
+                                <Button
+                                    color='twitter'
+                                    style={{
+                                        borderRadius: '0',
+                                        backgroundColor: '#39beff',
+                                        width: '100%'
+                                    }}
+                                    onClick={this.props.onPay}
+                                >
+                                    <Icon name='expeditedssl'/>
+                                    支付{this.props.price}NAS查看房主联系方式
+                                </Button>
                             </div>
                         </div>
 
@@ -530,6 +546,8 @@ Friend.defaultProps = {
     fondCount: 0,
     ifPaid: true,
     onChange: () => {},
+    onPay: () => {},
+    onLike: () => {},
 };
 
 export default Friend;

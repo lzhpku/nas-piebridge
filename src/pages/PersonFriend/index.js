@@ -7,12 +7,11 @@ import PageHeader from '../../components/Header';
 import { getFriend, checkFriend } from '../../dataAdapter';
 
 class PersonFriend extends Component {
+
     state = {
         ifWaitforWriteChainDialogOpen: false
     }
     componentDidMount() {
-        // fetch data
-
         getFriend(this.props.match.params.friendId)
             .then(res => {
                 this.setState({
@@ -33,6 +32,14 @@ class PersonFriend extends Component {
             ifWaitforWriteChainDialogOpen: false,
         })
     }
+    handleLike = () => {
+        checkFriend(this.props.match.params.friendId, this.state.price)
+            .then(res => {
+                this.setState({
+                    ifWaitforWriteChainDialogOpen: true,
+                })
+            })
+    }
     render() {
         return (
             <div>
@@ -40,20 +47,10 @@ class PersonFriend extends Component {
 
                 <Friend
                     type="read"
+                    onLike={this.handleLike}
+                    onPay={this.handlePay}
                     {...this.state}
                 >
-                    <Button
-                        color='twitter'
-                        style={{
-                            borderRadius: '0',
-                            backgroundColor: '#39beff',
-                            width: '100%'
-                        }}
-                        onClick={this.handlePay}
-                    >
-                        <Icon name='expeditedssl' />
-                        支付{this.state.price}NAS查看房主联系方式
-                    </Button>
                 </Friend>
 
                 <Modal
