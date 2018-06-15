@@ -23,11 +23,18 @@ class MalePage extends Component {
         perRow: 4,
         list: [],
     }
+
+    sortList(list) {
+        return list.sort(function (a, b) {
+            return b.fondCount - a.fondCount;
+        });
+    }
+
     componentDidMount() {
         getFriendList(this.state.curPage, "male")
             .then(res => {
                 this.setState({
-                    list: res.list.reverse(),
+                    list: this.sortList(res.list),
                 })
             })
 
