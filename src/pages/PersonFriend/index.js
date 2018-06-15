@@ -65,7 +65,7 @@ class PersonFriend extends Component {
                             backgroundColor: '#fff'
                         }}
                     >
-                        注意
+                        温馨提示
                     </Modal.Header>
                     <Modal.Content
                         style={{
