@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { Input, Segment, Header, TextArea, Card, Image, Label, Form, Checkbox, Button, Icon } from 'semantic-ui-react';
 import './style.css';
+import defaultAvatar from '../../images/default.jpg';
 
 class Friend extends Component {
 
@@ -119,38 +120,6 @@ class Friend extends Component {
                                     display: this.props.type == 'read' ? 'inline-flex' : 'none',
                                 }}
                             >
-                                <div
-                                    className="ui right labeled button"
-                                    role="button"
-                                    tabIndex="0"
-                                    style={{
-                                        backgroundColor: '#f798b4',
-                                    }}
-                                >
-                                    <button
-                                        className="ui button"
-                                        role="button"
-                                        onClick={this.props.onLike}
-                                        style={{
-                                            color: '#f798b4',
-                                        }}
-                                    >
-                                        <i aria-hidden="true"
-                                           className="heart icon"
-                                        >
-                                        </i>
-                                        喜欢
-                                    </button>
-                                    <a
-                                        className="ui pink left pointing basic label"
-                                        style={{
-                                            color: '#f798b4',
-                                        }}
-                                    >
-                                        {fondCount}
-                                    </a>
-                                </div>
-
                                 <Button
                                     as='div'
                                     labelPosition='right'
@@ -158,6 +127,9 @@ class Friend extends Component {
                                     <Button
                                         onClick={this.props.onLike}
                                         color='pink'
+                                        style={{
+                                            backgroundColor: '#f798b4',
+                                        }}
                                     >
                                         <Icon name='heart'/>
                                         喜欢
@@ -165,8 +137,11 @@ class Friend extends Component {
                                     <Label
                                         as='a'
                                         basic
-                                        color='pink'
                                         pointing='left'
+                                        style={{
+                                            color: '#f798b4',
+                                            borderColor: '#f798b4',
+                                        }}
                                     >
                                         {fondCount}
                                     </Label>
@@ -191,25 +166,25 @@ class Friend extends Component {
                                     style={{
                                         marginTop: '16px',
                                     }}
-                                    href={pic1}
+                                    href={pic1 == "" ? defaultAvatar : pic1}
                                 >
-                                    <Image src={pic1}/>
+                                    <Image src={pic1 == "" ? defaultAvatar : pic1}/>
                                 </Card>
                                 <Card
                                     style={{
                                         marginTop: '16px',
                                     }}
-                                    href={pic2}
+                                    href={pic2 == "" ? defaultAvatar : pic2}
                                 >
-                                    <Image src={pic2}/>
+                                    <Image src={pic2 == "" ? defaultAvatar : pic2}/>
                                 </Card>
                                 <Card
                                     style={{
                                         marginTop: '16px',
                                     }}
-                                    href={pic3}
+                                    href={pic3 == "" ? defaultAvatar : pic3}
                                 >
-                                    <Image src={pic3}/>
+                                    <Image src={pic3 == "" ? defaultAvatar : pic3}/>
                                 </Card>
                             </Card.Group>
                         </div>
