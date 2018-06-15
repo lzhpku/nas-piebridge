@@ -4,7 +4,7 @@
     "contact_host": "https://testnet.nebulas.io"
   },
   "main": {
-    "contract_address": "n1w9fjPtm9zkQDEqAHTCwdEHHMhxK3125XP",
+    "contract_address": "n1p9V64YdByfPr6RnovqkevDddmaPcgSxgv",
     "contact_host": "https://mainnet.nebulas.io"
   }
 }
