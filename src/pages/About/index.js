@@ -71,7 +71,7 @@ class About extends Component {
                             paddingTop: '40px'
                         }}
                     >
-                        <h3>PieBridge（鹊桥），喜欢TA就给TA NAS吧，打造区块链+交友第一品牌！</h3>
+                        <h3>PieBridge（鹊桥），喜欢TA就给TA NAS吧，打造区块链+交友的最IN品牌！</h3>
                     </div>
 
                 </div>
